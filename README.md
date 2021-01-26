@@ -172,12 +172,13 @@ Wei-Lun Chao [weilunchao760414@gmail.com](mailto:weilunchao760414@gmail.com?subj
 
 ## Google Colab Implimentation
 See version that can be run in Google Colab [here](https://colab.research.google.com/drive/1zcFnG3okq3lauorICmk2nEzH-y08loo9?usp=sharing)
+
 This is currently a work in progress and not yet ready. Currently trying to find the best method for loading the 200GB training dataset in colab.
 
 ## Progress
 Here I am documenting steps for training with this repository to fix a couple of issues that were not explained in the original repository. 
 
-Download the SceneFlow dataset from (here)[https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html]. You'll want to download 'RGB images (cleanpass)' and 'Disparity' for all three datasets. (Note: This is a very large dataset, approx 200GB)
+Download the SceneFlow dataset from [here](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html). You'll want to download 'RGB images (cleanpass)' and 'Disparity' for all three datasets. (Note: This is a very large dataset, approx 200GB)
 
 Reorganise your folders based on the Readme.md in 'src/dataset' folder of this repo and edit the 'sceneflow_w1.config' file in 'src/configs' to match your dataset folder.
 

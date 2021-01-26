@@ -170,6 +170,10 @@ Divyansh Garg [dg595@cornell.edu](mailto:dg595@cornell.edu?subject=[GitHub]%20W-
 Yan Wang [yw763@cornell.edu](mailto:yw763@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)
 Wei-Lun Chao [weilunchao760414@gmail.com](mailto:weilunchao760414@gmail.com?subject=[GitHub]%20W-Stereo_Disp)
 
+## Google Colab Implimentation
+See version that can be run in Google Colab [here](https://colab.research.google.com/drive/1zcFnG3okq3lauorICmk2nEzH-y08loo9?usp=sharing)
+This is currently a work in progress and not yet ready. Currently trying to find the best method for loading the 200GB training dataset in colab.
+
 ## Progress
 Here I am documenting steps for training with this repository to fix a couple of issues that were not explained in the original repository. 
 

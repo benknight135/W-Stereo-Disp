@@ -169,3 +169,37 @@ Please feel free to email us if you have any questions.
 Divyansh Garg [dg595@cornell.edu](mailto:dg595@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)
 Yan Wang [yw763@cornell.edu](mailto:yw763@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)
 Wei-Lun Chao [weilunchao760414@gmail.com](mailto:weilunchao760414@gmail.com?subject=[GitHub]%20W-Stereo_Disp)
+
+## Progress
+Here I am documenting steps for training with this repository to fix a couple of issues that were not explained in the original repository. 
+
+Download the SceneFlow dataset from (here)[https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html]. You'll want to download 'RGB images (cleanpass)' and 'Disparity' for all three datasets. (Note: This is a very large dataset, approx 200GB)
+
+Reorganise your folders based on the Readme.md in 'src/dataset' folder of this repo and edit the 'sceneflow_w1.config' file in 'src/configs' to match your dataset folder.
+
+Register for a losswise accout [here](https://losswise.com/). This is for monitoring the training process. Add the API Key from losswise to the 'sceneflow_w1.config' file. 
+
+Comment out missing imports from __init__.py in 'src/models' like this:
+```
+# from .full_res import PSMNet as basic
+from .stackhourglass import PSMNet as stackhourglass
+# from .stackhourglass_classif import PSMNet as stackhourglass_classif
+# from .stackhourglass_edge_aware import PSMNet as stackhourglass_edge_aware
+# from .stackhourglass_full import PSMNet as stackhourglass_full
+# from .stackhourglass_semantic import PSMNet as stackhourglass_semantic
+# from .stackhourglass_softmax_offset import PSMNet as stackhourglass_softmax_offset
+# from .stackhourglass_std import PSMNet as stackhourglass_std
+from .stackhourglass_volume import PSMNet as stackhourglass_volume
+# from .stackhourglass_volume_large_off import PSMNet as stackhourglass_volume_large_off
+# from .stackhourglass_volume_multihead import PSMNet as stackhourglass_multihead
+# from .stackhourglass_volume_semantic import PSMNet as stackhourglass_volume_semantic
+# from .stackhourglass_win import PSMNet as stackhourglass_win
+
+```
+
+Edit the config batch size values for your machine (values of btrain=1, bval=1 seemed to work for my single RTX2070 GPU).
+
+Run the depth training script:
+```
+python ./src/main_depth.py -c src/configs/sceneflow_w1.config
+```

@@ -260,6 +260,7 @@ def main():
         scheduler.step()
 
         ## training ##
+        print("TRAINING...")
         train_metric = utils_func.Metric()
         tqdm_train_loader = tqdm(TrainImgLoader, total=len(TrainImgLoader))
         for batch_idx, (imgL_crop, imgR_crop, disp_crop_L, calib) in enumerate(tqdm_train_loader):
@@ -271,6 +272,7 @@ def main():
         lw.update(train_metric.get_info(), epoch, 'Train')
 
         ## testing ##
+        print("TESTING...")
         is_best = False
         if epoch == 0 or ((epoch + 1) % args.eval_interval) == 0:
             test_metric = utils_func.Metric()
